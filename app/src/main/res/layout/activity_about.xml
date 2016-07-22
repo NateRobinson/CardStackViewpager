@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/back_ll"
+        android:layout_width="?attr/actionBarSize"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/back_iv_bg"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/my_head_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/top_margin_big"
+                android:drawablePadding="@dimen/normal_padding"
+                android:drawableRight="@mipmap/boy_icon"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/my_name"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_font_size_big_22sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bottom_margin_big"
+                android:layout_marginLeft="@dimen/left_margin"
+                android:layout_marginRight="@dimen/right_margin"
+                android:layout_marginTop="@dimen/top_margin_big"
+                android:gravity="center"
+                android:text="@string/my_signature"
+                android:textColor="@color/text_color"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/text_font_size_content_14sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/top_margin"
+                android:background="@color/gray_ef"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/custom_ll_bg"
+                android:gravity="center_vertical"
+                >
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:src="@mipmap/qq_icon"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/left_margin_normal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/my_qq"
+                    android:textColor="@color/text_color"
+                    android:textIsSelectable="true"
+                    android:textSize="@dimen/text_font_size_content_14sp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_ef"/>
+
+            <LinearLayout
+                android:id="@+id/my_git_ll"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/custom_ll_bg"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                >
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:src="@mipmap/github_icon"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/left_margin_normal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/my_github"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_font_size_content_14sp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_ef"/>
+
+            <LinearLayout
+                android:id="@+id/my_blog_ll"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/custom_ll_bg"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                >
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:src="@mipmap/blog_icon"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/left_margin_normal"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/my_blog"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_font_size_content_14sp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_ef"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/top_margin"
+                android:text="V 1.0.0"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_font_size_small_12sp"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CardStackViewpager</string>
+    <string name="my_name">Nate Robinson</string>
+    <string name="my_qq">840501291</string>
+    <string name="my_github">https://github.com/NateRobinson</string>
+    <string name="my_blog">http://blog.csdn.net/u011771755</string>
+    <string name="my_signature">生活也许艰辛，但这不是让自己放弃努力、放弃爱好的理由~~</string>
 </resources>

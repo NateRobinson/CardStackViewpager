@@ -1,12 +1,29 @@
 <resources>
     <!-- 字体大小 -->
     <dimen name="text_font_size_big_60sp">60sp</dimen>
+    <dimen name="text_font_size_big_22sp">22sp</dimen>
+    <dimen name="text_font_size_title_18sp">18sp</dimen>
+    <dimen name="text_font_size_title_16sp">16sp</dimen>
+    <dimen name="text_font_size_content_14sp">14sp</dimen>
+    <dimen name="text_font_size_small_12sp">12sp</dimen>
 
     <!-- 边距设置 -->
     <dimen name="left_margin">20dp</dimen>
     <dimen name="right_margin">20dp</dimen>
     <dimen name="top_margin">20dp</dimen>
     <dimen name="bottom_margin">40dp</dimen>
+    <dimen name="left_padding">8dp</dimen>
+    <dimen name="normal_padding">8dp</dimen>
+    <dimen name="left_margin_big">10dp</dimen>
+    <dimen name="left_margin_normal">8dp</dimen>
+    <dimen name="right_margin_big">10dp</dimen>
+    <dimen name="right_margin_normal">8dp</dimen>
+    <dimen name="top_margin_big">10dp</dimen>
+    <dimen name="top_margin_normal">8dp</dimen>
+    <dimen name="bottom_margin_big">10dp</dimen>
+    <dimen name="bottom_margin_normal">8dp</dimen>
+
+
 
     <!-- cardview阴影-->
     <dimen name="card_elevation">10dp</dimen>

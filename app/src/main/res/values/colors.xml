@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="green">#2ecc71</color>
+    <color name="green">#00BA9C</color>
+    <color name="green_dark">#05917a</color>
     <color name="text_color">#141d26</color>
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="gray_ef">#efefef</color>
+    <color name="progress_bar_color">#33ff3d</color>
 </resources>

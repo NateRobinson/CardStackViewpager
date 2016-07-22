@@ -1,9 +1,11 @@
 package com.gu.cardstackviewpager.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.gu.cardstackviewpager.R;
 import com.gu.cardstackviewpager.adapter.ContentFragmentAdapter;
@@ -27,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         mOrientedViewPager = (OrientedViewPager) findViewById(R.id.view_pager);
 
         //制造数据
@@ -43,5 +46,14 @@ public class HomeActivity extends AppCompatActivity {
         //设置transformer
         mOrientedViewPager.setPageTransformer(true, new VerticalStackTransformer(getApplicationContext()));
         mOrientedViewPager.setAdapter(mContentFragmentAdapter);
+
+        //跳转关于我的界面
+        findViewById(R.id.about_iv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, AboutActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
