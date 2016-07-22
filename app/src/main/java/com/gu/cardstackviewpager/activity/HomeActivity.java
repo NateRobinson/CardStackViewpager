@@ -20,9 +20,7 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
 
     private OrientedViewPager mOrientedViewPager;
-
     private ContentFragmentAdapter mContentFragmentAdapter;
-
     private List<Fragment> mFragments = new ArrayList<>();
 
     @Override
@@ -45,6 +43,5 @@ public class HomeActivity extends AppCompatActivity {
         //设置transformer
         mOrientedViewPager.setPageTransformer(true, new VerticalStackTransformer(getApplicationContext()));
         mOrientedViewPager.setAdapter(mContentFragmentAdapter);
-
     }
 }

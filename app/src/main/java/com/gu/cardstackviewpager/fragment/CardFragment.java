@@ -15,10 +15,7 @@ import com.gu.cardstackviewpager.R;
  * Created by Nate on 2016/7/22.
  */
 public class CardFragment extends Fragment {
-
     private static final String INDEX_KEY = "index_key";
-
-    private int[] colors = new int[]{};
 
     public static CardFragment newInstance(int index) {
         CardFragment fragment = new CardFragment();
