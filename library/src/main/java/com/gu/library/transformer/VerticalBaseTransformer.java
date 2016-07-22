@@ -4,7 +4,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 /**
- * Created by T530 on 18/09/2014.
+ * Created by Nate on 2016/7/22.
  */
 public abstract class VerticalBaseTransformer implements ViewPager.PageTransformer {
     /**

@@ -1,4 +1,4 @@
-package com.gu.library.utilities;
+package com.gu.library.utils;
 
 import android.app.Activity;
 import android.content.Context;

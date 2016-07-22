@@ -3,11 +3,11 @@ package com.gu.library.transformer;
 import android.content.Context;
 import android.view.View;
 
-import com.gu.library.utilities.ScreenUtils;
+import com.gu.library.utils.ScreenUtils;
 
 
 /**
- * Created by T530 on 18/09/2014.
+ * Created by Nate on 2016/7/22.
  */
 public class VerticalStackTransformer extends VerticalBaseTransformer {
 

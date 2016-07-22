@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/emerald"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/midnight_blue"
+        android:textSize="32sp"/>
+
+    <com.gu.library.OrientedViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"></com.gu.library.OrientedViewPager>
+</LinearLayout>
