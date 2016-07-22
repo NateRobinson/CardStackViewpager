@@ -23,27 +23,26 @@ public class HomeActivity extends AppCompatActivity {
 
     private ContentFragmentAdapter mContentFragmentAdapter;
 
-    private List<Fragment> mFragments=new ArrayList<>();
+    private List<Fragment> mFragments = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        mOrientedViewPager = (OrientedViewPager) findViewById(R.id.view_pager);
 
-        mOrientedViewPager= (OrientedViewPager) findViewById(R.id.view_pager);
-
-
-        mFragments.add(new CardFragment());
-        mFragments.add(new CardFragment());
-        mFragments.add(new CardFragment());
-        mFragments.add(new CardFragment());
-        mFragments.add(new CardFragment());
-
+        //制造数据
+        for (int i = 0; i < 10; i++) {
+            mFragments.add(CardFragment.newInstance(i + 1));
+        }
 
         mContentFragmentAdapter = new
                 ContentFragmentAdapter(getSupportFragmentManager(), mFragments);
+        //设置viewpager的方向为竖直
         mOrientedViewPager.setOrientation(OrientedViewPager.Orientation.VERTICAL);
+        //设置limit
         mOrientedViewPager.setOffscreenPageLimit(4);
+        //设置transformer
         mOrientedViewPager.setPageTransformer(true, new VerticalStackTransformer(getApplicationContext()));
         mOrientedViewPager.setAdapter(mContentFragmentAdapter);
 

@@ -1,0 +1,13 @@
+<resources>
+    <!-- 字体大小 -->
+    <dimen name="text_font_size_big_60sp">60sp</dimen>
+
+    <!-- 边距设置 -->
+    <dimen name="left_margin">20dp</dimen>
+    <dimen name="right_margin">20dp</dimen>
+    <dimen name="top_margin">20dp</dimen>
+    <dimen name="bottom_margin">40dp</dimen>
+
+    <!-- cardview阴影-->
+    <dimen name="card_elevation">10dp</dimen>
+</resources>

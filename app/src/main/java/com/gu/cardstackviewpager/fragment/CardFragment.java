@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.gu.cardstackviewpager.R;
 
@@ -15,10 +16,14 @@ import com.gu.cardstackviewpager.R;
  */
 public class CardFragment extends Fragment {
 
+    private static final String INDEX_KEY = "index_key";
+
+    private int[] colors = new int[]{};
+
     public static CardFragment newInstance(int index) {
         CardFragment fragment = new CardFragment();
         Bundle bdl = new Bundle();
-        //bdl.putInt(EXTRA_COLOR, backgroundColor);
+        bdl.putInt(INDEX_KEY, index);
         fragment.setArguments(bdl);
         return fragment;
     }
@@ -26,11 +31,11 @@ public class CardFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_card, container, false);
-//        Bundle bdl = getArguments();
-//        mMainLayout = (FrameLayout) v.findViewById(R.id.main_layout);
-//        LayerDrawable bgDrawable = (LayerDrawable) mMainLayout.getBackground();
-//        GradientDrawable shape = (GradientDrawable) bgDrawable.findDrawableByLayerId(R.id.background_shape);
-//        shape.setColor(bdl.getInt(EXTRA_COLOR));
+        TextView cardNumTv = (TextView) v.findViewById(R.id.card_num_tv);
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            cardNumTv.setText(bundle.getInt(INDEX_KEY, 0)+"");
+        }
         return v;
     }
 }

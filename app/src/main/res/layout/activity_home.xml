@@ -9,11 +9,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/emerald"
-        android:fontFamily="sans-serif-light"
+        android:background="@color/green"
         android:gravity="center"
         android:text="@string/app_name"
-        android:textColor="@color/midnight_blue"
+        android:textColor="@color/text_color"
         android:textSize="32sp"/>
 
     <com.gu.library.OrientedViewPager

@@ -12,9 +12,17 @@ import com.gu.library.utils.ScreenUtils;
 public class VerticalStackTransformer extends VerticalBaseTransformer {
 
     private Context context;
+    private int spaceBetweenFirAndSecWith = 10 * 2;//第一张卡片和第二张卡片宽度差  dp单位
+    private int spaceBetweenFirAndSecHeight = 10;//第一张卡片和第二张卡片高度差   dp单位
 
     public VerticalStackTransformer(Context context) {
         this.context = context;
+    }
+
+    public VerticalStackTransformer(Context context, int spaceBetweenFirAndSecWith, int spaceBetweenFirAndSecHeight) {
+        this.context = context;
+        this.spaceBetweenFirAndSecWith = spaceBetweenFirAndSecWith;
+        this.spaceBetweenFirAndSecHeight = spaceBetweenFirAndSecHeight;
     }
 
     @Override
@@ -25,22 +33,22 @@ public class VerticalStackTransformer extends VerticalBaseTransformer {
             page.setAlpha(1.0f);
             page.setTranslationY(0f);
         } else if (position <= 1.0f) {
-            float scale1 = (float) (ScreenUtils.getScreenWidth(context) - ScreenUtils.dp2px(context, 30 * 2 + 30 * 2 * position)) / (float) (ScreenUtils.getScreenWidth(context) - ScreenUtils.dp2px(context, 30 * 2));
+            float scale1 = (float) (ScreenUtils.getScreenWidth(context) - ScreenUtils.dp2px(context, spaceBetweenFirAndSecWith * (1 + position))) / (float) (ScreenUtils.getScreenWidth(context) - ScreenUtils.dp2px(context, spaceBetweenFirAndSecWith));
             page.setAlpha(1.0f);
             page.setPivotX(page.getWidth() / 2f);
             page.setPivotY(page.getHeight() / 2f);
             page.setScaleX(scale1);
             page.setScaleY(scale1);
-            float shiftY1 = (ScreenUtils.getScreenHeight(context) - ScreenUtils.dp2px(context, 92 + 32)) * 0.5f - (ScreenUtils.getScreenHeight(context) - ScreenUtils.dp2px(context, 92 + 32)) * scale1 * 0.5f + ScreenUtils.dp2px(context, 30) * position;
+            float shiftY1 = (page.getHeight() * 0.5f) * (1 - scale1) + ScreenUtils.dp2px(context, spaceBetweenFirAndSecHeight) * position;
             page.setTranslationY(-page.getHeight() * position + shiftY1);
         } else if (position <= 2.0f) {
-            float scale2 = (float) (ScreenUtils.getScreenWidth(context) - ScreenUtils.dp2px(context, 30 * 2 + 30 * 2 * position)) / (float) (ScreenUtils.getScreenWidth(context) - ScreenUtils.dp2px(context, 30 * 2));
+            float scale2 = (float) (ScreenUtils.getScreenWidth(context) - ScreenUtils.dp2px(context, spaceBetweenFirAndSecWith * (1 + position))) / (float) (ScreenUtils.getScreenWidth(context) - ScreenUtils.dp2px(context, spaceBetweenFirAndSecWith));
             page.setAlpha(1.0f);
             page.setPivotX(page.getWidth() / 2f);
             page.setPivotY(page.getHeight() / 2f);
             page.setScaleX(scale2);
             page.setScaleY(scale2);
-            float shiftY2 = (ScreenUtils.getScreenHeight(context) - ScreenUtils.dp2px(context, 92 + 32)) * 0.5f - (ScreenUtils.getScreenHeight(context) - ScreenUtils.dp2px(context, 92 + 32)) * scale2 * 0.5f + ScreenUtils.dp2px(context, 30) * position;
+            float shiftY2 = (page.getHeight() * 0.5f) * (1 - scale2) + ScreenUtils.dp2px(context, spaceBetweenFirAndSecHeight) * position;
             page.setTranslationY(-page.getHeight() * position + shiftY2);
         }
     }
