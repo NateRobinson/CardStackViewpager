@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gu.cardstackviewpager.R;
 
@@ -27,12 +28,18 @@ public class CardFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_card, container, false);
+        final View v = inflater.inflate(R.layout.fragment_card, container, false);
         TextView cardNumTv = (TextView) v.findViewById(R.id.card_num_tv);
-        Bundle bundle = getArguments();
+        final Bundle bundle = getArguments();
         if (bundle != null) {
-            cardNumTv.setText(bundle.getInt(INDEX_KEY, 0)+"");
+            cardNumTv.setText(bundle.getInt(INDEX_KEY, 0) + "");
         }
+        cardNumTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "点击了" + bundle.getInt(INDEX_KEY, 0) + "", Toast.LENGTH_SHORT).show();
+            }
+        });
         return v;
     }
 }

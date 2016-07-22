@@ -42,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
         //设置viewpager的方向为竖直
         mOrientedViewPager.setOrientation(OrientedViewPager.Orientation.VERTICAL);
         //设置limit
-        mOrientedViewPager.setOffscreenPageLimit(4);
+        mOrientedViewPager.setOffscreenPageLimit(5);
         //设置transformer
         mOrientedViewPager.setPageTransformer(true, new VerticalStackTransformer(getApplicationContext()));
         mOrientedViewPager.setAdapter(mContentFragmentAdapter);
