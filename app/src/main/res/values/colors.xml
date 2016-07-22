@@ -6,5 +6,5 @@
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
     <color name="gray_ef">#efefef</color>
-    <color name="progress_bar_color">#33ff3d</color>
+    <color name="progress_bar_color">#00BA9C</color>
 </resources>
