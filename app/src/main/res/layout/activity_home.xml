@@ -37,5 +37,5 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/transparent"></com.gu.library.OrientedViewPager>
+        android:background="@color/text_color"></com.gu.library.OrientedViewPager>
 </LinearLayout>
