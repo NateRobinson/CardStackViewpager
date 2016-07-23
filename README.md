@@ -5,10 +5,10 @@
 这个`CardStackViewpager `的灵感来自Github上面的	[`FlippableStackView`](https://github.com/blipinsk/FlippableStackView)开源项目，而我想实现的效果方向上恰好与`FlippableStackView`相反，并且细节上也有些区别，详见下面的效果对比图：
 
 ######FlippableStackView运行效果图：
-![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/one.png?raw=true)
+![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/one.gif?raw=true)
 
 ######CardStackViewpager运行效果图：
-![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/two.png?raw=true)
+![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/two.gif?raw=true)
 
 这里讲一个小插曲，自己尝试实现`CardStackViewpager`的过程中，由于一开始对`PageTransformer`的`onTransform(View page, float position)`实在很困惑，于是我用自己小学般的英语写了一封邮件给`FlippableStackView`的开发者，尴尬的是，至今他没回我邮件。
 
@@ -66,6 +66,7 @@
 ```
 
 对应日志如下：
+
 ![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/three.png?raw=true)
 
 根据这个日志很明显的可以判断得到：
