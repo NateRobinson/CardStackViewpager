@@ -5,14 +5,14 @@
 这个`CardStackViewpager `的灵感来自Github上面的	[`FlippableStackView`](https://github.com/blipinsk/FlippableStackView)开源项目，而我想实现的效果方向上恰好与`FlippableStackView`相反，并且细节上也有些区别，详见下面的效果对比图：
 
 ######FlippableStackView运行效果图：
-![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/one.gif?raw=true)
+![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/two.gif?raw=true)
 
 ######CardStackViewpager运行效果图：
-![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/two.gif?raw=true)
+![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/one.gif?raw=true)
 
 这里讲一个小插曲，自己尝试实现`CardStackViewpager`的过程中，由于一开始对`PageTransformer`的`onTransform(View page, float position)`实在很困惑，于是我用自己小学般的英语写了一封邮件给`FlippableStackView`的开发者，尴尬的是，至今他没回我邮件。
 
-插曲讲完，下面我就来具体讲一下`CardStackViewpager `的实现思路，其实整个核心就在下面这一段代码，把下面这段代码搞懂了，就可以通过自定义自己的`PageTransformer`实现各种各样想要的Viewpager效果了。
+回归正题，下面我就来具体讲一下`CardStackViewpager `的实现思路，其实整个核心就在下面这一段代码，把下面这段代码搞懂了，就可以通过自定义自己的`PageTransformer`实现各种各样想要的Viewpager效果了。
 
 ####核心的VerticalStackTransformer的onTransform方法最终版
 
@@ -50,12 +50,7 @@
 
 现在我们继续看上面的`onTransform(View page, float position)`方法，这个方法设计的很巧妙，当初我在探索的时候，通过打印日志来判断这个方法是如何执行的时候，发现这这个`position`的值看似毫无规律，后来我想到以前数学里推理定理时的方法，从`特殊情况入手`,再`一点点分析其他情况`，然后一步步的实现上面的代码。
 
-特殊情况就是应用初始化进来的时候，这个时候的效果图如下：
-
-![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/four.png?raw=true)
-
-
-####第一步，分析position
+####第一步，分析应用初始化进来的时候的position
 此时的`onTransform(View page, float position)`方法如下：
 
 ```
@@ -66,7 +61,6 @@
 ```
 
 对应日志如下：
-
 ![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/three.png?raw=true)
 
 根据这个日志很明显的可以判断得到：
