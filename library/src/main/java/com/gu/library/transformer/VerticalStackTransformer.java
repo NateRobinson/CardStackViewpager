@@ -1,6 +1,7 @@
 package com.gu.library.transformer;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 
 import com.gu.library.utils.ScreenUtils;
@@ -27,15 +28,21 @@ public class VerticalStackTransformer extends VerticalBaseTransformer {
 
     @Override
     protected void onTransform(View page, float position) {
-        if (position <= -1) {
-            page.setAlpha(1.0f);
+        if (position <= -1f) {
+            Log.e("onTransform","position <= -1f ==>"+position);
             page.setTranslationY(-page.getHeight());
         } else if (position <= 0.0f) {
-            page.setAlpha(1.0f);
+            Log.e("onTransform","position <= 0.0f ==>"+position);
             page.setTranslationY(0f);
+            //控制停止滑动切换的时候，只有最上面的一张卡片可以点击
+            page.setClickable(true);
         } else if (position <= 3.0f) {
+            Log.e("onTransform","position <= 3.0f ==>"+position);
             float scale1 = (float) (ScreenUtils.getScreenWidth(context) - ScreenUtils.dp2px(context, spaceBetweenFirAndSecWith * (1 + position))) / (float) (ScreenUtils.getScreenWidth(context) - ScreenUtils.dp2px(context, spaceBetweenFirAndSecWith));
+            //控制下面卡片的可见度
             page.setAlpha(1.0f);
+            //控制停止滑动切换的时候，只有最上面的一张卡片可以点击
+            page.setClickable(false);
             page.setPivotX(page.getWidth() / 2f);
             page.setPivotY(page.getHeight() / 2f);
             page.setScaleX(scale1);
