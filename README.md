@@ -61,6 +61,7 @@
 ```
 
 对应日志如下：
+
 ![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/three.png?raw=true)
 
 根据这个日志很明显的可以判断得到：
