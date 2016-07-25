@@ -28,27 +28,24 @@ public class VerticalStackTransformer extends VerticalBaseTransformer {
 
     @Override
     protected void onTransform(View page, float position) {
-        if (position <= -1f) {
-            Log.e("onTransform","position <= -1f ==>"+position);
-            page.setTranslationY(-page.getHeight());
-        } else if (position <= 0.0f) {
-            Log.e("onTransform","position <= 0.0f ==>"+position);
+        if (position <= 0.0f) {
+            page.setAlpha(1.0f);
+            Log.e("onTransform", "position <= 0.0f ==>" + position);
             page.setTranslationY(0f);
             //控制停止滑动切换的时候，只有最上面的一张卡片可以点击
             page.setClickable(true);
         } else if (position <= 3.0f) {
-            Log.e("onTransform","position <= 3.0f ==>"+position);
-            float scale1 = (float) (ScreenUtils.getScreenWidth(context) - ScreenUtils.dp2px(context, spaceBetweenFirAndSecWith * (1 + position))) / (float) (ScreenUtils.getScreenWidth(context) - ScreenUtils.dp2px(context, spaceBetweenFirAndSecWith));
+            Log.e("onTransform", "position <= 3.0f ==>" + position);
+            float scale = (float) (page.getWidth() - ScreenUtils.dp2px(context, spaceBetweenFirAndSecWith * position)) / (float) (page.getWidth());
             //控制下面卡片的可见度
             page.setAlpha(1.0f);
             //控制停止滑动切换的时候，只有最上面的一张卡片可以点击
             page.setClickable(false);
             page.setPivotX(page.getWidth() / 2f);
             page.setPivotY(page.getHeight() / 2f);
-            page.setScaleX(scale1);
-            page.setScaleY(scale1);
-            float shiftY1 = (page.getHeight() * 0.5f) * (1 - scale1) + ScreenUtils.dp2px(context, spaceBetweenFirAndSecHeight) * position;
-            page.setTranslationY(-page.getHeight() * position + shiftY1);
+            page.setScaleX(scale);
+            page.setScaleY(scale);
+            page.setTranslationY(-page.getHeight() * position + (page.getHeight() * 0.5f) * (1 - scale) + ScreenUtils.dp2px(context, spaceBetweenFirAndSecHeight) * position);
         }
     }
 }
