@@ -54,6 +54,8 @@
     @Override
     protected void onTransform(View page, float position) {
         Log.e("onTransform","position  ==>"+position);
+        //设置每个卡片y方向偏移量，这样可以使卡片都完全叠加起来
+        page.setTranslationY(-page.getHeight() * position);
     }
 ```
 
