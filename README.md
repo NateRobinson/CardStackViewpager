@@ -1,18 +1,18 @@
-#CardStackViewpager 卡片翻页效果的Viewpager
+# CardStackViewpager 卡片翻页效果的Viewpager
 
 这个`CardStackViewpager `的灵感来自Github上面的	[`FlippableStackView`](https://github.com/blipinsk/FlippableStackView)开源项目，而我想实现的效果方向上恰好与`FlippableStackView`相反，并且细节上也有些区别，详见下面的效果对比图：
 
-######FlippableStackView运行效果图：
+###### FlippableStackView运行效果图：
 ![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/two.gif?raw=true)
 
-######CardStackViewpager运行效果图：
+###### CardStackViewpager运行效果图：
 ![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/one.gif?raw=true)
 
 这里讲一个小插曲，自己尝试实现`CardStackViewpager`的过程中，由于一开始对`PageTransformer`的`onTransform(View page, float position)`实在很困惑，于是我用自己小学般的英语写了一封邮件给`FlippableStackView`的开发者，尴尬的是，至今他没回我邮件。
 
 回归正题，下面我就来具体讲一下`CardStackViewpager `的实现思路，其实整个核心就在下面这一段代码，把下面这段代码搞懂了，就可以通过自定义自己的`PageTransformer`实现各种各样想要的Viewpager效果了。
 
-####核心的VerticalStackTransformer的onTransform方法最终版
+#### 核心的VerticalStackTransformer的onTransform方法最终版
 
 ```
     @Override
@@ -39,13 +39,13 @@
     }
 ```
 
-######在分析上面的代码之前，我们需要有以下几个知识准备：
+###### 在分析上面的代码之前，我们需要有以下几个知识准备：
 1. Viewpager的`setPageTransformer(boolean reverseDrawingOrder, ViewPager.PageTransformer transformer)`方法的第一个参数，用来控制加入到Viewpager的Views对象是正序的还是倒序的，这里为了实现我们想要的效果，需要让第一个添加到布局的View来到第一个展示，所以传入`true`；
 2. Viewpager的`setOffscreenPageLimit(int limit)`方法，设置有多少的缓存Views，这个将决定我们的卡片重叠展示的效果显示几层卡片效果。
 
 现在我们继续看上面的`onTransform(View page, float position)`方法，这个方法设计的很巧妙，当初我在探索的时候，通过打印日志来判断这个方法是如何执行的时候，发现这这个`position`的值看似毫无规律，后来我想到以前数学里推理定理时的方法，从`特殊情况入手`,再`一点点分析其他情况`，然后一步步的实现上面的代码。
 
-####第一步，分析应用初始化进来的时候的position
+#### 第一步，分析应用初始化进来的时候的position
 此时的`onTransform(View page, float position)`方法如下：
 
 ```
@@ -88,7 +88,7 @@
 
 ![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/six.png?raw=true)
 
-####第二步，实现卡片叠加的最终效果
+#### 第二步，实现卡片叠加的最终效果
 
 分析上面的图片效果，可以发现，把第二张卡片往下移动一段距离之后，就可以形成一个卡片叠加的初步效果了，变成下面这样：
 
@@ -124,7 +124,7 @@
 
 惊喜的发现这不就是卡片叠加效果嘛，虽然现在的效果细节还有点问题，我们不急，这个细节问题简单分析一下就会想到，是我们的缩放比例问题导致的，继续下一步的优化，我们将会解决这个问题。
 
-####第三步，根据相邻卡片的间距值动态设置缩放值
+#### 第三步，根据相邻卡片的间距值动态设置缩放值
 
 上面的`onTransform(View page, float position)`方法中，我们的x，y缩放比例都是写的一个固定值`0.9f`,这个显然不能满足日常需求，我这里是设置上下两张卡片的宽度比来作为最终想要的缩放比例，修改`onTransform(View page, float position)`方法如下：
 
@@ -147,7 +147,7 @@
 
 ![enter image description here](https://github.com/NateRobinson/CardStackViewpager/blob/master/img/eleven.png?raw=true)
 
-####第四步，特殊到一般，实现最终的卡片滑动效果
+#### 第四步，特殊到一般，实现最终的卡片滑动效果
 
 此时，我们尝试一下滑动Viewpager，发现卡片的切换效果并没有如期的出现，通过多次尝试和分析，我发现，由于我们这里没有对当前滑动过去的那张卡片做特殊处理，这里的特殊处理指的是：为了实现卡片抽动的切换效果，当前滑动的卡片应该不用执行任何缩放和偏移的操作，修改为`page.setTranslationY(0f);`,具体代码如下：
 
