@@ -1,40 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.gu.cardstackviewpager">
+    package="com.gu.cardstackviewpager">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/app_logo"
+  <application
+      android:allowBackup="true"
+      android:icon="@mipmap/app_logo"
+      android:label="@string/app_name"
+      android:theme="@style/AppTheme">
+    <!-- 首页-->
+    <activity
+        android:name=".activity.HomeActivity"
+        android:configChanges="orientation|keyboardHidden|screenSize"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-        <!-- 首页-->
-        <activity
-            android:name=".activity.HomeActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="stateAlwaysHidden">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
 
-        <!-- 关于我的界面-->
-        <activity
-            android:name=".activity.AboutActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
+    <!-- 关于我的界面-->
+    <activity
+        android:name=".activity.AboutActivity"
+        android:configChanges="orientation|keyboardHidden|screenSize"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="stateAlwaysHidden"/>
 
-        <!-- webview界面-->
-        <activity
-            android:name=".activity.WebViewActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
-    </application>
+    <!-- webview界面-->
+    <activity
+        android:name=".activity.WebViewActivity"
+        android:configChanges="orientation|keyboardHidden|screenSize"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="stateAlwaysHidden"/>
+
+    <meta-data
+        android:name="android.max_aspect"
+        android:value="2.4" />
+
+  </application>
 
 </manifest>
