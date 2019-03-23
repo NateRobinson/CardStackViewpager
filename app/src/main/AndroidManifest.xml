@@ -36,9 +36,9 @@
         android:screenOrientation="portrait"
         android:windowSoftInputMode="stateAlwaysHidden"/>
 
-    <meta-data
-        android:name="android.max_aspect"
-        android:value="2.4" />
+    <!--<meta-data-->
+        <!--android:name="android.max_aspect"-->
+        <!--android:value="2.4" />-->
 
   </application>
 
